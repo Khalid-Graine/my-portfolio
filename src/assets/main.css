@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .effect {
+    @apply  bg-red-100 rounded-md;
+  }
+}
+
+@layer components {
+  .padding {
+    @apply px-5 sm:px-5 md:px-20;
+  }
+}
+@layer components {
+  .title {
+    @apply py-3 text-lg font-semibold;
+  }
+}
+@layer components {
+  .icon {
+    @apply text-lienPrimary text-2xl cursor-pointer hover:text-lienecondary ;
+  }
+}
+@layer components {
+  .activee {
+    @apply bg-red-300 w-16 ;
+  }
+}
+
+:hover.hovereffect {
+  background: rgba(255, 255, 255, 0.039);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.046);
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
