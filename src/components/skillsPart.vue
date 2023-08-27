@@ -11,7 +11,7 @@
        <tags :tags="['php', 'laravel','inertia js','mysql', 'api']" />
 
        <p class="text-primary font-semibold my-1">tools:</p>
-       <tags :tags="['vs code', 'git','post man', 'npm']" />
+       <tags :tags="['vs code', 'git','github','post man', 'npm']" />
        
 
 

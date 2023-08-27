@@ -22,6 +22,14 @@ export const useInfoStore = defineStore({
         tech: [ 'HTML', 'CSS', 'js', 'CSS', 'js' ]
       },
       {
+        name: "whatssap clone",
+        description: 'gftf fgftf fhfh fhff ffff fff fff',
+        picture: "https://i.pinimg.com/originals/af/13/96/af13962383242e44ab780930a39feeda.png",
+        github: "https://github.com/Khalid-Graine/whatsapp-clone",
+        demo: "https://whatssap-clone.netlify.app/",
+        tech: [ 'Vue js', 'Pinia', 'Tailwind css' ]
+      },
+      {
         name: "web developer portfolio",
         description: 'This is Web-Developer-Portfolio project made with Vue js, Tailwind css',
         picture: "https://i.pinimg.com/originals/86/01/ae/8601ae3e8f28977e7e7adc80bc9c05ea.png",
@@ -29,6 +37,31 @@ export const useInfoStore = defineStore({
         demo: "https://main--developer-portfolio-257.netlify.app/",
         tech: ["Vue js", "Tailwind css"]
       },
+      {
+        name: "disrourd clone",
+        description: 'descccccccccc',
+        picture: "https://i.pinimg.com/originals/d8/7e/07/d87e07c216c843ad30dc5568f5b00774.png",
+        github: "https://github.com/Khalid-Graine/discourd-clone",
+        demo: "https://fluffy-malabi-cd4084.netlify.app",
+        tech: ["Html", "Css"]
+      },
+      {
+        name: "kesper",
+        description: 'descccccccccc',
+        picture: "https://i.pinimg.com/originals/45/60/44/456044b27bbb3bea5fa5b30701169024.png",
+        github: "https://github.com/Khalid-Graine/kesper-responsive",
+        demo: "https://keen-griffin-08d6cf.netlify.app/",
+        tech: ["Html", "Css","responsive design"]
+      },
+      {
+        name: "leon",
+        description: 'descccccccccc',
+        picture: "https://i.pinimg.com/originals/cd/8f/c0/cd8fc0a84c6752d91a9823812ddcb2e6.png",
+        github: "https://github.com/Khalid-Graine/leon",
+        demo: "https://khalid-graine.github.io/leon/",
+        tech: ["Html", "Css","responsive design"]
+      },
+      
     ],
     experiences: [
       {
