@@ -1,103 +1,93 @@
 <template>
-    <div>yesssssssssss</div>
-    <div class="font-Poppins flex flex-col overflow-hidden text-primary">
-        <!-- part 1 -->
-        <div class="pt-10 lg:w-6/12 lg:h-screen lg:py-20 lg:fixed top-0 left-0 padding bg-main">
-            <homePart :currentPart="currentPart" :info="InfoStore" @valueEmitted="handleValueFromChild"></homePart>
+    <div class="app-container font-Poppins flex flex-col overflow-hidden text-primary">
+  
+      <!-- Left Part: Home Section -->
+      <div class="home-section pt-10 lg:w-6/12 lg:h-screen lg:py-20 lg:fixed top-0 left-0 padding bg-main">
+        <home :currentSection="currentSection" :info="InfoStore" @clickedSection="scrollToSection" />
+      </div>
+  
+      <!-- Right Part: About, Skills, Experience, Projects -->
+      <div class="content-section lg:w-6/12 lg:absolute top-0 right-0 padding flex flex-col gap-20 bg-main">
+        
+        <!-- About Me -->
+        <div class="about-section pt-20">
+          <theTitle>About Me</theTitle>
+          <about :text="InfoStore.aboutMe" />
         </div>
-
-        <!-- part 2 -->
-        <main class="lg:w-6/12 lg:absolute top-0 right-0 padding flex flex-col gap-20 bg-main">
-            <!-- ab -->
-            <div class="about pt-20">
-                <section-title>About Me</section-title>
-                <aboutPart :text="InfoStore.aboutMe" />
-            </div>
-
-            <!-- skills -->
-            <div class="skills pt-10 lg:pt-20">
-                <section-title>Skills</section-title>
-                <skillsPart />
-            </div>
-
-            <!-- ex -->
-            <div class="experience pt-10 lg:pt-20">
-                <section-title>Experience</section-title>
-                <experiencePart :experiences="InfoStore.experiences" />
-            </div>
-
-            <!-- projects -->
-            <div class="projects pt-10 lg:pt-20">
-                <section-title>Projects</section-title>
-                <ProjectCard :projects="InfoStore.projects"></ProjectCard>
-                <router-link to="/allprojects">all projects</router-link>
-            </div>
-
-        </main>
+  
+        <!-- Skills -->
+        <div class="skills-section pt-10 lg:pt-20">
+          <theTitle>Skills</theTitle>
+          <skills />
+        </div>
+  
+        <!-- Experience -->
+        <div class="experience-section pt-10 lg:pt-20">
+          <theTitle>Experience</theTitle>
+          <experience :experiences="InfoStore.experiences" />
+        </div>
+  
+        <!-- Projects -->
+        <div class="projects-section pt-10 lg:pt-20">
+          <theTitle>Projects</theTitle>
+          <Projects :projects="InfoStore.getFirstProjects()" />
+        </div>
+  
+      </div>
     </div>
-</template>
-
-<script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
-import ProjectCard from "../components/ProjectCard.vue";
-import { useInfoStore } from "../stores/info";
-import experiencePart from "../components/experiencePart.vue";
-import sectionTitle from "../components/sectionTitle.vue";
-import aboutPart from "../components/aboutPart.vue";
-import homePart from "../components/homePart.vue";
-import Tags from "../components/Tags.vue";
-import skillsPart from "../components/skillsPart.vue";
-const InfoStore = useInfoStore();
-
-const scrollToProjectsPart = (v) => {
-    const projectsPartElement = document.querySelector(`.${v}`);
-    if (projectsPartElement) {
-        const projectsPartOffsetTop = projectsPartElement.offsetTop;
-        window.scrollTo({
-            top: projectsPartOffsetTop,
-            behavior: "smooth",
-        });
+  </template>
+  
+  <script setup>
+  import { ref, onMounted, onBeforeUnmount } from "vue";
+  import { useInfoStore } from "../stores/info";
+  import home from "../components/sections/home.vue";
+  import About from "../components/sections/about.vue";
+  import skills from "../components/sections/skills.vue";
+  import experience from "../components/sections/experience.vue";
+  import Projects from "../components/sections/project.vue";
+  import theTitle from "../components/theTitle.vue";
+ 
+  
+  const InfoStore = useInfoStore();
+  const currentScrollPosition = ref(0);
+  const currentSection = ref("about");
+  
+  const scrollToSection = (targetSection) => {
+    const sectionElement = document.querySelector(`.${targetSection}-section`);
+    if (sectionElement) {
+      const sectionOffsetTop = sectionElement.offsetTop;
+      window.scrollTo({
+        top: sectionOffsetTop,
+        behavior: "smooth",
+      });
     }
-};
-
-const receivedValue = ref("");
-
-const handleValueFromChild = (value) => {
-    receivedValue.value = value;
-    console.log(receivedValue.value);
-    scrollToProjectsPart(value);
-};
-
-const currentScrollPosition = ref(0);
-const currentPart = ref("about");
-
-const handleScroll = () => {
+  };
+  
+  const updateCurrentSection = () => {
+    const sections = ["about", "skills", "experience", "projects"];
+    const offsetThreshold = 50;
+    
+    for (const section of sections) {
+      const sectionElement = document.querySelector(`.${section}-section`);
+      const sectionOffsetTop = sectionElement.offsetTop;
+      
+      if (currentScrollPosition.value > sectionOffsetTop - offsetThreshold) {
+        currentSection.value = section;
+      }
+    }
+  };
+  
+  const handleScroll = () => {
     currentScrollPosition.value = window.scrollY;
-    const about = document.querySelector(".about").offsetTop;
-    const skills = document.querySelector(".skills").offsetTop;
-    const projects = document.querySelector(".projects").offsetTop;
-    const experience = document.querySelector(".experience").offsetTop;
-
-    if (currentScrollPosition.value > about - 50) {
-        currentPart.value = "about";
-    }
-    if (currentScrollPosition.value > skills - 50) {
-        currentPart.value = "skills";
-    }
-    if (currentScrollPosition.value > experience - 50) {
-        currentPart.value = "experience";
-    }
-    if (currentScrollPosition.value > projects - 50) {
-        currentPart.value = "projects";
-    }
-    console.log(currentPart.value);
-};
-
-onMounted(() => {
+    updateCurrentSection();
+  };
+  
+  onMounted(() => {
     window.addEventListener("scroll", handleScroll);
-});
-
-onBeforeUnmount(() => {
+  });
+  
+  onBeforeUnmount(() => {
     window.removeEventListener("scroll", handleScroll);
-});
-</script>
+  });
+  </script>
+  

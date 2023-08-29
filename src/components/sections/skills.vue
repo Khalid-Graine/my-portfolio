@@ -18,6 +18,6 @@
     </div>
 </template>
 <script setup>
-import Tags from './Tags.vue';
+import Tags from '../Tags.vue';
 
 </script>
