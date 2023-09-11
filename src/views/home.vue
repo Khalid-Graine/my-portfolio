@@ -18,7 +18,7 @@
         <!-- Skills -->
         <div class="skills-section pt-10 lg:pt-20">
           <theTitle>Skills</theTitle>
-          <skills />
+          <skills :skills="InfoStore.skills" />
         </div>
   
         <!-- Experience -->
@@ -39,7 +39,7 @@
   
   <script setup>
   import { ref, onMounted, onBeforeUnmount } from "vue";
-  import { useInfoStore } from "../stores/info";
+  import { useInfoStore } from "../stores/informations";
   import home from "../components/sections/home.vue";
   import About from "../components/sections/about.vue";
   import skills from "../components/sections/skills.vue";

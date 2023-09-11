@@ -103,7 +103,7 @@
               </td>
               <td class="whitespace-nowrap px-6 py-2 ">
                 
-                 <a :href="project.demo" class="flex items-center gap-2 hover:text-secondary">
+                 <a :href="project.demo" target="_blank" class="flex items-center gap-2 hover:text-secondary">
                   <p>{{ project.name }}</p>
                   <i v-if="project.demo" class="fa-solid fa-up-right-from-square"></i>
                 </a>
@@ -124,7 +124,7 @@
 
 <script setup>
 import Tags from "../components/Tags.vue";
-import { useInfoStore } from "../stores/info";
+import { useInfoStore } from "../stores/informations";
 const InfoStore = useInfoStore();
 
 

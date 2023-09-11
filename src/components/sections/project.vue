@@ -9,11 +9,13 @@
       <div
    
     >
-      <div class="rounded-t-lg overflow-y-hidden">
+      <div class="rounded-t-lg overflow-y-hidden ">
         <img :src="project.picture" alt="" />
       </div>
-      <div class="p-1">
-        <a :href="project.demo ? project.demo : project.github" target="_blank">
+
+      <div class="p-1  flex gap-2">
+        <div class="flex-grow">
+          <a :href="project.demo ? project.demo : project.github" target="_blank">
           <div
             class="text-lg font-semibold flex items-center gap-3 hover:text-lienecondary"
             
@@ -24,14 +26,12 @@
             ></i>
           </div>
         </a>
-
-        <p class="text-secondary">
-          {{ project.description }}
-        </p>
+       
         <div class="mt-1">
           <tags :tags="project.tech"></tags>
         </div>
-        <div class="flex justify-between p-1">
+        </div>
+        <div class="flex  justify-between mx-2">
           <div class="flex gap-3">
             <a v-if="project.demo" :href="project.demo" target="_blank">
               <i class="fa-regular fa-eye icon"></i>
@@ -42,6 +42,7 @@
           </div>
         </div>
       </div>
+
     </div>
     </a>
   </div>
