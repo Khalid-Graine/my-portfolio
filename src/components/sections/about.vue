@@ -11,7 +11,6 @@
 
 <p>I believe coding is like art, blending logic and creativity to make digital things. I like making programs that work well and feel smooth to use.</p>
 
-<p>Besides coding, I also love challenges in the real world. I enjoy rock climbing with my wife and two cats. When I'm not coding, I like exploring virtual worlds, like searching for hidden things in the game Hyrule.</p>
 
 <p>My journey shows that learning by yourself is possible and exciting. From starting with basic code to making more complicated apps, I've learned a lot and I'm eager to keep improving.</p>
 

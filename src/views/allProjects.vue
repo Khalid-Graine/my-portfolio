@@ -21,7 +21,7 @@
               <th scope="col" class="px-4 py-4">#</th>
               <th scope="col" class="px-4 py-4">Project</th>
               
-                <th scope="col" class="px-4 py-4 ">Build with</th>
+                <th scope="col" class="px-4 py-4 ">Built with</th>
               <th scope="col" class="px-4 py-4">links</th>
            
             </tr>

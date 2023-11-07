@@ -10,7 +10,7 @@ module.exports = {
         date: "#64748b",
         tagText: "#5EEAD4",
         tagBackground: "#2DD4BF1A",
-        lienPrimary: "#39FF14",
+        lienPrimary: "#39FF00",
         lienecondary: "#39FF14a6",
       },
       fontFamily: {
