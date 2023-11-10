@@ -21,6 +21,13 @@ export const projects = [
     tech: ["Vue js", "Tailwindcss"],
   },
   {
+    name: "nike clone",
+    picture: "/images/nike.png",
+    github: "https://github.com/Khalid-Graine/nike-clone",
+    demo: "https://clone-nike-store.netlify.app/",
+    tech: ["Vue js", "Tailwind css", "pinia store"],
+  },
+  {
     name: "landing page",
     picture: "/images/landingpage.png",
     github: "https://github.com/Khalid-Graine/fibre-landing-page",
